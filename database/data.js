@@ -43,7 +43,16 @@ export default [
             'parse()',
             'convert()',
         ]
+    },
+    {
+        id: 6,
+        question : "Which function is used to serialize an object into a JSON string?",
+        options : [
+            'stringify()',
+            'parse()',
+            'convert()',
+        ]
     }
 ];
 
-export const answers = [0, 1, 2, 1, 0];
+export const answers = [0, 1, 2, 1, 0, 0];

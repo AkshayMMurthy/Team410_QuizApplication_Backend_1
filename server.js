@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { config } from 'dotenv';
 import router from './router/route.js';
+import mongoose from "mongoose";
 
 
 /** import connection file */
@@ -33,6 +34,30 @@ app.get('/', (req, res) => {
         res.json(error)
     }
 })
+
+const resultsSchema = new mongoose.Schema({
+    username: String,
+    attempts: Number,
+    points: Number,
+    achived: String
+  });
+  
+  const Results = mongoose.model('results', resultsSchema);
+  
+
+
+app.delete('/api/deleteAllRecords', async (req, res) => {
+    try {
+      // Perform the deletion operation in MongoDB
+      const deleteResult = await Results.deleteMany({});
+  
+      // Respond with a success message or any relevant information
+      res.json({ message: `${deleteResult.deletedCount} records deleted successfully.` });
+    } catch (error) {
+      console.error('Error deleting records:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 
 /** start server only when we have valid connection */

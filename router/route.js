@@ -15,5 +15,10 @@ router.route('/result')
         .get(controller.getResult)
         .post(controller.storeResult)
         .delete(controller.dropResult)
+        .delete(controller.deleteResult)
+
+
+
+
 
 export default router;

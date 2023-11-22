@@ -39,7 +39,7 @@ export async function dropQuestions(req, res){
 
  export async function getResult(req, res){
     try {
-        const r = await Results.find();
+      const r = await Results.find().sort({points:-1});
         res.json(r)
     } catch (error) {
         res.json({ error })
@@ -74,6 +74,19 @@ export async function storeResult(req, res){
     } catch (error) {
         res.json({ error })
     }
+}
+
+export async function deleteResult(req,res){
+  try {
+    // Perform the deletion operation in MongoDB
+    await Results.deleteMany({});
+
+    // Respond with a success message or any relevant information
+    res.json({ message: `${deleteResult.deletedCount} records deleted successfully.` });
+  } catch (error) {
+    console.error('Error deleting records:', error);
+    res.json({ error: 'Internal Server Error' });
+  };
 }
 
 
