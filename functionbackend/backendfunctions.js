@@ -1,6 +1,6 @@
-import Questions from "../models/questionSchema.js";
-import Results from "../models/resultSchema.js";
-import questions, { answers } from '../database/data.js'
+import Questions from "../mongodbtypes/qtypes.js";
+import Results from "../mongodbtypes/rtypes.js";
+import questions, { answers } from '../mongodb_a/pushdata.js'
 
 export function getQuestions(req, res) {
     Questions.find()
@@ -13,17 +13,16 @@ export function getQuestions(req, res) {
   }
 
 
-
-export async function insertQuestions(req, res){
-    Questions.insertMany({ questions , answers })
-  .then(() => {
-    res.json({ msg: "Data Saved Successfully...!" });
-  })
-  .catch((err) => {
-    // Handle the error here
-    res.json({ err })
-  });
+  export async function insertQuestions(req, res){
+    try {
+        Questions.insertMany({ questions, answers }, function(err, data){
+            res.json({ msg: "Data Saved Successfully...!"})
+        })
+    } catch (error) {
+        res.json({ error })
+    }
 }
+
 
 
 export async function dropQuestions(req, res){

@@ -1,6 +1,6 @@
 export default [
     {
-        id: 1,
+        id: 11,
         question : "Javascript is an _______ language",
         options : [
             'Object-Oriented',
@@ -9,7 +9,7 @@ export default [
         ]
     },
     {
-        id: 2,
+        id: 12,
         question : "Following methods can be used to display data in some form using Javascript",
         options : [
             'document.write()',
@@ -18,7 +18,7 @@ export default [
         ]
     },
     {
-        id: 3,
+        id: 13,
         question : "When an operator value is NULL, the typeof returned by the unary operator is:",
         options : [
             'Boolean',
@@ -27,7 +27,7 @@ export default [
         ]
     },
     {
-        id: 4,
+        id: 14,
         question : "What does the toString() method return?",
         options : [
             'Return Object',
@@ -36,16 +36,7 @@ export default [
         ]
     },
     {
-        id: 5,
-        question : "Which function is used to serialize an object into a JSON string?",
-        options : [
-            'stringify()',
-            'parse()',
-            'convert()',
-        ]
-    },
-    {
-        id: 6,
+        id: 15,
         question : "Which function is used to serialize an object into a JSON string?",
         options : [
             'stringify()',
@@ -55,4 +46,4 @@ export default [
     }
 ];
 
-export const answers = [0, 1, 2, 1, 0, 0];
+export const answers = [0, 1, 2, 1, 0];

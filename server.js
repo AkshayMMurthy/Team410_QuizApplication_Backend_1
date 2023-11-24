@@ -2,18 +2,20 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import { config } from 'dotenv';
-import router from './router/route.js';
+import router from './apiforurl/apis.js';
 import mongoose from "mongoose";
 
 
 /** import connection file */
-import connect from './database/conn.js';
+import connect from './mongodb_a/mongo_uri.js';
 
 const app = express()
 
 
 /** app middlewares */
 app.use(morgan('tiny'));
+
+
 app.use(cors());
 app.use(express.json());
 config();
